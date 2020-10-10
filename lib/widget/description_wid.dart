@@ -41,8 +41,10 @@ class _DescriptionButtonState extends State<DescriptionButton> {
         FlatButton.icon(
           onPressed: () {
             setState(() {
-              // Provider.of<Mobile>(context, listen: false)
-              //     .changeFav(widget.mobile.id);
+              Provider.of<Mobile>(context, listen: false)
+                  .randomCompare(0, widget.mobile);
+              Navigator.of(context).pushNamed(SearchPage.Route,
+                  arguments: {'compare': true, 'selected': 1});
             });
           },
           icon: CircleAvatar(

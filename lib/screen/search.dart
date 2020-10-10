@@ -78,8 +78,7 @@ class _SearchPageState extends State<SearchPage> {
                         setState(() {
                           _selected++;
                         });
-                      } else
-                        Navigator.of(context).pop();
+                      } else if (!_select) Navigator.of(context).pop();
                       if (_selected == 2)
                         Navigator.of(context).pushReplacementNamed(
                             CompareScreen.Route,

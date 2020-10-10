@@ -19,7 +19,18 @@ class UserProfile extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    IconButton(icon: Icon(Icons.more_vert), onPressed: () {}),
+                    PopupMenuButton(
+                      onSelected: (value) {
+                        // TODO execute change password
+                      },
+                      icon: Icon(Icons.more_vert),
+                      itemBuilder: (context) {
+                        return [
+                          PopupMenuItem(
+                              value: 0, child: Text("Change Password"))
+                        ];
+                      },
+                    ),
                     Container(
                       margin: EdgeInsets.all(20),
                       alignment: Alignment.center,
