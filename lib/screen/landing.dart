@@ -8,48 +8,16 @@ class LandingPage extends StatefulWidget {
 }
 
 class _LandingPageState extends State<LandingPage> {
-  List<String> routes = [
-    LandingPage.LandingRoute,
-    FilterPage.Route,
-    LandingPage.LandingRoute,
-  ];
   int current = 0;
   List<Mobile> mobileCard = mobiles.sublist(0, 3);
+
   @override
   Widget build(BuildContext context) {
     final _mob = Provider.of<Mobile>(context).comparePhone;
     return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.black,
-        currentIndex: current,
-        onTap: (value) async {
-          setState(() {
-            current = value;
-          });
-          if (current != 0) {
-            var data = await Navigator.of(context).pushNamed(routes[value]);
-            print(data);
-          }
-          setState(() {
-            current = 0;
-          });
-        },
-        selectedItemColor: kPrimaryColor,
-        unselectedItemColor: kAccentColor,
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            label: 'Search',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.account_circle_rounded),
-            label: 'User',
-          ),
-        ],
+      bottomNavigationBar: BottomBar(
+        current: current,
+        routes: routes,
       ),
       drawer: Drawer(
         elevation: 10,
@@ -84,12 +52,14 @@ class _LandingPageState extends State<LandingPage> {
                       ),
                       title: Text('Compare'),
                       onTap: () {
-                        Navigator.of(context).pushNamed(SearchPage.Route,
-                            arguments: {
-                              'mobiles': _mob,
-                              'selected': 0,
-                              'compare': true
-                            });
+                        Navigator.of(context).pushNamed(
+                          SearchPage.Route,
+                          arguments: {
+                            'mobiles': _mob,
+                            'selected': 0,
+                            'compare': true
+                          },
+                        );
                       },
                     ),
                     Divider(

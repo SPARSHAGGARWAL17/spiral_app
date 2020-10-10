@@ -33,7 +33,12 @@ class FilterPage extends StatelessWidget {
     var filters = Provider.of<Mobile>(context).filterList;
     List keys = filters.keys.toList();
     return Scaffold(
+      bottomNavigationBar: BottomBar(
+        current: 1,
+        routes: routes,
+      ),
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         actions: [
           IconButton(
               icon: Icon(Icons.close),

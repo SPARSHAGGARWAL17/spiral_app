@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:spiral_app/export.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 
 class BannerList extends StatefulWidget {
   @override
@@ -7,13 +8,13 @@ class BannerList extends StatefulWidget {
 }
 
 class _BannerListState extends State<BannerList> {
+  int currentPage = 0;
   List<Mobile> mobileBanner = mobiles.sublist(3, 7);
+  CarouselController _controller = CarouselController();
   bool init = true;
 
-  int currentPage = 0;
   @override
   Widget build(BuildContext context) {
-    PageController _page = PageController();
     return Container(
       height: 250,
       child: Column(
@@ -27,24 +28,34 @@ class _BannerListState extends State<BannerList> {
                 .copyWith(fontSize: 20, fontFamily: 'Segoe UI'),
           ),
           Expanded(
-            child: PageView(
-              onPageChanged: (value) {
-                setState(() {
-                  currentPage = value;
-                });
-              },
-              controller: _page,
-              children: List.generate(
+            child: CarouselSlider(
+              carouselController: _controller,
+              options: CarouselOptions(
+                  enlargeCenterPage: true,
+                  initialPage: 0,
+                  autoPlay: true,
+                  autoPlayCurve: Curves.easeInOutExpo,
+                  pageSnapping: true,
+                  onPageChanged: (int value, option) {
+                    setState(() {
+                      currentPage = value;
+                    });
+                  }),
+              items: List.generate(
                 mobileBanner.length,
                 (index) => InkWell(
                   onTap: () {},
                   child: Container(
-                    padding: const EdgeInsets.all(15.0),
+                    padding: const EdgeInsets.all(10.0),
                     child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      mainAxisSize: MainAxisSize.min,
                       children: [
                         Expanded(
+                            // flex: 2,
                             child: Image.asset(mobileBanner[index].imageUrl)),
                         Expanded(
+                          // flex: 1,
                           child: RichText(
                             text: TextSpan(
                               style: TextStyle(color: Colors.white),
@@ -54,7 +65,7 @@ class _BannerListState extends State<BannerList> {
                                   text: mobileBanner[index].name,
                                   style: TextStyle(
                                     fontWeight: FontWeight.bold,
-                                    fontSize: 30,
+                                    fontSize: 25,
                                   ),
                                 ),
                               ],
@@ -67,8 +78,7 @@ class _BannerListState extends State<BannerList> {
                       borderRadius: BorderRadius.circular(20),
                       color: mobileBanner[index].color,
                     ),
-                    margin:
-                        const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
+                    margin: const EdgeInsets.symmetric(vertical: 10),
                   ),
                 ),
               ),

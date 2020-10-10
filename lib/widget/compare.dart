@@ -22,7 +22,7 @@ class CompareWidget extends StatelessWidget {
             alignment: Alignment.center,
             children: [
               Container(
-                height: 90,
+                height: 70,
                 padding: EdgeInsets.symmetric(horizontal: 10),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -40,7 +40,7 @@ class CompareWidget extends StatelessWidget {
                         child: LimitedBox(
                           maxWidth: 110,
                           child: Container(
-                            padding: EdgeInsets.all(20),
+                            padding: EdgeInsets.all(10),
                             child: Text(
                               _card[i].name,
                               style:
@@ -71,7 +71,7 @@ class CompareWidget extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  radius: 45,
+                  radius: 50,
                   backgroundColor: kPrimaryColor,
                 ),
               ),

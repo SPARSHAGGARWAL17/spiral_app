@@ -15,6 +15,7 @@ class _SearchPageState extends State<SearchPage> {
   bool init = true;
   int _index = 0;
   bool _select;
+
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();

@@ -64,3 +64,9 @@ class Mobile with ChangeNotifier {
     notifyListeners();
   }
 }
+
+List<String> routes = [
+  LandingPage.LandingRoute,
+  FilterPage.Route,
+  LandingPage.LandingRoute,
+];
