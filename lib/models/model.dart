@@ -58,6 +58,10 @@ class Mobile with ChangeNotifier {
     return [..._compare];
   }
 
+  List<Mobile> get favorites {
+    return mobiles.where((element) => element.isFav).toList();
+  }
+
   void randomCompare(int selected, Mobile mobile) {
     _compare.removeAt(selected);
     _compare.insert(selected, mobile);
@@ -65,8 +69,15 @@ class Mobile with ChangeNotifier {
   }
 }
 
+Map<String, dynamic> description = {
+  'Ratings': Icons.star_rate_rounded,
+  'Performance': Icons.analytics,
+  'Storage': Icons.storage,
+  'Battery': Icons.battery_full_rounded,
+};
+
 List<String> routes = [
   LandingPage.LandingRoute,
   FilterPage.Route,
-  LandingPage.LandingRoute,
+  UserProfile.Route,
 ];

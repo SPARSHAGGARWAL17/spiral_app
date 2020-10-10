@@ -27,8 +27,8 @@ class _BottomBarState extends State<BottomBar> {
           _current = value;
         });
         if (_current != widget.current) {
-          var data =
-              await Navigator.of(context).pushNamed(widget.routes[_current]);
+          var data = await Navigator.of(context)
+              .pushReplacementNamed(widget.routes[_current]);
           print(data);
         }
       },

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:spiral_app/export.dart';
+import 'package:spiral_app/screen/mobile_desc.dart';
 
 class SectionItem extends StatelessWidget {
   final String title;
@@ -51,42 +52,50 @@ class SingleSectionItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Container(
-          padding: const EdgeInsets.all(5),
-          height: height,
-          width: width,
-          margin: const EdgeInsets.fromLTRB(10, 10, 0, 0),
-          child: Image.asset(
-            item.imageUrl,
-            fit: BoxFit.cover,
-          ),
-          decoration: BoxDecoration(
-            color: item.color,
-            borderRadius: BorderRadius.circular(10),
-          ),
-        ),
-        Container(
-          padding: const EdgeInsets.all(10),
-          height: height,
-          width: width,
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [Colors.black12, Colors.black87],
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
+    return InkWell(
+      onTap: displayText
+          ? () {
+              Navigator.of(context)
+                  .pushNamed(MobilePage.Route, arguments: item);
+            }
+          : () {},
+      child: Stack(
+        children: [
+          Container(
+            padding: const EdgeInsets.all(5),
+            height: height,
+            width: width,
+            margin: const EdgeInsets.fromLTRB(10, 10, 0, 0),
+            child: Image.asset(
+              item.imageUrl,
+              fit: BoxFit.cover,
+            ),
+            decoration: BoxDecoration(
+              color: item.color,
+              borderRadius: BorderRadius.circular(10),
             ),
           ),
-          alignment: Alignment.bottomLeft,
-          margin: const EdgeInsets.fromLTRB(10, 10, 0, 0),
-          child: LimitedBox(
-              child: Text(
-            displayText ? item.name : '',
-            style: TextStyle(fontSize: 18),
-          )),
-        )
-      ],
+          Container(
+            padding: const EdgeInsets.all(10),
+            height: height,
+            width: width,
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [Colors.black12, Colors.black87],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+              ),
+            ),
+            alignment: Alignment.bottomLeft,
+            margin: const EdgeInsets.fromLTRB(10, 10, 0, 0),
+            child: LimitedBox(
+                child: Text(
+              displayText ? item.name : '',
+              style: TextStyle(fontSize: 18),
+            )),
+          )
+        ],
+      ),
     );
   }
 }

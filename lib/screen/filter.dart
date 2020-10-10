@@ -39,13 +39,6 @@ class FilterPage extends StatelessWidget {
       ),
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        actions: [
-          IconButton(
-              icon: Icon(Icons.close),
-              onPressed: () {
-                Navigator.of(context).pop();
-              })
-        ],
         backgroundColor: kPrimaryColor,
         title: Text(
           "Select Filter",

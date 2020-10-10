@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:spiral_app/export.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:spiral_app/screen/mobile_desc.dart';
 
 class BannerList extends StatefulWidget {
   @override
@@ -44,7 +45,10 @@ class _BannerListState extends State<BannerList> {
               items: List.generate(
                 mobileBanner.length,
                 (index) => InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.of(context).pushNamed(MobilePage.Route,
+                        arguments: mobileBanner[index]);
+                  },
                   child: Container(
                     padding: const EdgeInsets.all(10.0),
                     child: Row(

@@ -103,33 +103,35 @@ class _LandingPageState extends State<LandingPage> {
           ),
         ),
       ),
-      body: SingleChildScrollView(
-        padding: EdgeInsets.all(10),
-        child: Column(
-          children: [
-            BannerList(),
-            SectionItem(
-              title: 'You May Also Like',
-              list: mobileCard,
-              displayText: true,
-            ),
-            CompareWidget(),
-            SectionItem(
-              title: 'Top Performing',
-              list: mobileCard,
-              displayText: true,
-            ),
-            SectionItem(
-              title: 'Top Camera',
-              list: mobiles.sublist(4, 7),
-              displayText: true,
-            ),
-            SectionItem(
-              title: 'Top Rated',
-              list: mobiles.sublist(5, 8),
-              displayText: true,
-            ),
-          ],
+      body: SafeArea(
+        child: SingleChildScrollView(
+          padding: EdgeInsets.all(10),
+          child: Column(
+            children: [
+              BannerList(),
+              SectionItem(
+                title: 'You May Also Like',
+                list: mobileCard,
+                displayText: true,
+              ),
+              CompareWidget(),
+              SectionItem(
+                title: 'Top Performing',
+                list: mobileCard,
+                displayText: true,
+              ),
+              SectionItem(
+                title: 'Top Camera',
+                list: mobiles.sublist(4, 7),
+                displayText: true,
+              ),
+              SectionItem(
+                title: 'Top Rated',
+                list: mobiles.sublist(5, 8),
+                displayText: true,
+              ),
+            ],
+          ),
         ),
       ),
     );

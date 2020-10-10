@@ -1,11 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:spiral_app/screen/mobile_desc.dart';
+import 'package:spiral_app/screen/user.dart';
 
 import 'export.dart';
 
 void main() {
-  runApp(MultiProvider(
-      providers: [ChangeNotifierProvider(create: (context) => Mobile())],
-      child: MyApp()));
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => Mobile(),
+        ),
+      ],
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -18,6 +27,8 @@ class MyApp extends StatelessWidget {
         LoginPage.Route: (context) => LoginPage(),
         FilterPage.Route: (context) => FilterPage(),
         CompareScreen.Route: (context) => CompareScreen(),
+        MobilePage.Route: (context) => MobilePage(),
+        UserProfile.Route: (context) => UserProfile(),
       },
       initialRoute: LoginPage.Route,
       theme: ThemeData.dark().copyWith(
