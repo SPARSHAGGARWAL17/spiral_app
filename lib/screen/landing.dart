@@ -67,6 +67,9 @@ class _LandingPageState extends State<LandingPage> {
                       endIndent: 30,
                     ),
                     ListTile(
+                      onTap: () {
+                        Navigator.of(context).pushNamed(AboutUs.Route);
+                      },
                       leading: Icon(
                         Icons.supervisor_account_rounded,
                         size: 40,
@@ -79,6 +82,9 @@ class _LandingPageState extends State<LandingPage> {
                       endIndent: 30,
                     ),
                     ListTile(
+                      onTap: () {
+                        Navigator.of(context).pushNamed(ContactUs.Route);
+                      },
                       leading: Icon(
                         Icons.mail,
                         size: 40,

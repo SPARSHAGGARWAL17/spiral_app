@@ -29,6 +29,9 @@ class MyApp extends StatelessWidget {
         CompareScreen.Route: (context) => CompareScreen(),
         MobilePage.Route: (context) => MobilePage(),
         UserProfile.Route: (context) => UserProfile(),
+        RecommendationPage.Route: (context) => RecommendationPage(),
+        ContactUs.Route: (context) => ContactUs(),
+        AboutUs.Route: (context) => AboutUs(),
       },
       initialRoute: LoginPage.Route,
       theme: ThemeData.dark().copyWith(

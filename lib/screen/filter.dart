@@ -66,9 +66,11 @@ class FilterPage extends StatelessWidget {
                         break;
                       }
                     }
-                    if (!empty)
-                      Navigator.of(context).pop(result);
-                    else
+                    if (!empty) {
+                      print(result);
+                      Navigator.of(context).pushNamed(RecommendationPage.Route,
+                          arguments: result);
+                    } else
                       dialogue(context);
                   },
                   icon: Icon(Icons.search_rounded),

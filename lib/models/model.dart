@@ -51,6 +51,13 @@ class Mobile with ChangeNotifier {
     'Charging': [],
   };
   List<Mobile> _compare = [];
+  List<Mobile> _recommend = [];
+  List<Mobile> get recommendations {
+    mobiles.shuffle();
+    if (_recommend.isNotEmpty) return [..._recommend];
+    return [...mobiles.sublist(0, 5)];
+  }
+
   List<Mobile> get comparePhone {
     for (var i in mobiles.sublist(0, 2)) {
       _compare.add(i);

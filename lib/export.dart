@@ -12,3 +12,6 @@ export 'package:spiral_app/screen/filter.dart';
 export 'screen/compare_screen.dart';
 export 'widget/bottom_bar.dart';
 export 'package:spiral_app/screen/user.dart';
+export 'screen/recommendation.dart';
+export 'screen/contact_us.dart';
+export 'screen/about_us.dart';
