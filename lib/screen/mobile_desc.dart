@@ -19,27 +19,30 @@ class MobilePage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                SingleSectionItem(
-                  item: mobile,
-                  displayText: false,
-                  height: size.height * 0.4,
-                  width: size.width * 0.6,
-                ),
-                Column(
-                  children: [
-                    for (var i = 0; i < 4; i++)
-                      Descriptions(
-                        keys: _keys,
-                        i: i,
-                        mobile: mobile,
-                        size: size,
-                      ),
-                  ],
-                ),
-              ],
+            Expanded(
+              flex: 6,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  SingleSectionItem(
+                    item: mobile,
+                    displayText: false,
+                    height: size.height * 0.4,
+                    width: size.width * 0.6,
+                  ),
+                  Column(
+                    children: [
+                      for (var i = 0; i < 4; i++)
+                        Descriptions(
+                          keys: _keys,
+                          i: i,
+                          mobile: mobile,
+                          size: size,
+                        ),
+                    ],
+                  ),
+                ],
+              ),
             ),
             DescriptionButton(mobile: mobile),
             Padding(
@@ -52,12 +55,14 @@ class MobilePage extends StatelessWidget {
                     ),
               ),
             ),
-            Container(
-              height: MediaQuery.of(context).size.height * 0.2,
-              padding: const EdgeInsets.fromLTRB(15, 5, 0, 0),
+            Expanded(
+              // height: MediaQuery.of(context).size.height * 0.2,
+              // padding: const EdgeInsets.fromLTRB(15, 5, 0, 0),
+              flex: 2,
               child: SingleChildScrollView(
+                padding: EdgeInsets.only(left: 10),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     for (var i = 0; i < _keysMobile.length; i++)
                       Container(
