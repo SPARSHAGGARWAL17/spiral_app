@@ -9,8 +9,14 @@ class Mobile with ChangeNotifier {
   final Map<String, Object> specs;
   bool isFav;
 
-  Mobile(
-      {this.id, this.imageUrl, this.color, this.name, this.specs, this.isFav});
+  Mobile({
+    this.id,
+    this.imageUrl,
+    this.color,
+    this.name,
+    this.specs,
+    this.isFav,
+  });
 
   void changeFav(String id) {
     mobiles.forEach((element) {
@@ -79,7 +85,7 @@ class Mobile with ChangeNotifier {
 Map<String, dynamic> description = {
   'Ratings': Icons.star_rate_rounded,
   'Performance': Icons.analytics,
-  'Storage': Icons.storage,
+  'Cameras': Icons.camera,
   'Battery': Icons.battery_full_rounded,
 };
 

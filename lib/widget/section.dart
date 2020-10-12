@@ -75,25 +75,26 @@ class SingleSectionItem extends StatelessWidget {
               borderRadius: BorderRadius.circular(10),
             ),
           ),
-          Container(
-            padding: const EdgeInsets.all(10),
-            height: height,
-            width: width,
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [Colors.black12, Colors.black87],
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
+          if (displayText)
+            Container(
+              padding: const EdgeInsets.all(10),
+              height: height,
+              width: width,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [Colors.black12, Colors.black87],
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                ),
               ),
-            ),
-            alignment: Alignment.bottomLeft,
-            margin: const EdgeInsets.fromLTRB(10, 10, 0, 0),
-            child: LimitedBox(
-                child: Text(
-              displayText ? item.name : '',
-              style: TextStyle(fontSize: 18),
-            )),
-          )
+              alignment: Alignment.bottomLeft,
+              margin: const EdgeInsets.fromLTRB(10, 10, 0, 0),
+              child: LimitedBox(
+                  child: Text(
+                displayText ? item.name : '',
+                style: TextStyle(fontSize: 18),
+              )),
+            )
         ],
       ),
     );

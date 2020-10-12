@@ -16,45 +16,46 @@ class MobilePage extends StatelessWidget {
       ),
       body: Container(
         // padding: EdgeInsets.all(5),
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  SingleSectionItem(
-                    item: mobile,
-                    displayText: false,
-                    height: size.height * 0.4,
-                    width: size.width * 0.6,
-                  ),
-                  Column(
-                    children: [
-                      for (var i = 0; i < 4; i++)
-                        Descriptions(
-                          keys: _keys,
-                          i: i,
-                          mobile: mobile,
-                          size: size,
-                        ),
-                    ],
-                  ),
-                ],
-              ),
-              DescriptionButton(mobile: mobile),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  'Description',
-                  style: Theme.of(context).textTheme.headline1.copyWith(
-                        fontSize: 40,
-                        color: Colors.white,
-                      ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                SingleSectionItem(
+                  item: mobile,
+                  displayText: false,
+                  height: size.height * 0.4,
+                  width: size.width * 0.6,
                 ),
+                Column(
+                  children: [
+                    for (var i = 0; i < 4; i++)
+                      Descriptions(
+                        keys: _keys,
+                        i: i,
+                        mobile: mobile,
+                        size: size,
+                      ),
+                  ],
+                ),
+              ],
+            ),
+            DescriptionButton(mobile: mobile),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                'Description',
+                style: Theme.of(context).textTheme.headline1.copyWith(
+                      fontSize: 40,
+                      color: Colors.white,
+                    ),
               ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(15, 5, 0, 0),
+            ),
+            Container(
+              height: MediaQuery.of(context).size.height * 0.2,
+              padding: const EdgeInsets.fromLTRB(15, 5, 0, 0),
+              child: SingleChildScrollView(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -85,17 +86,17 @@ class MobilePage extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(height: 20),
-              Center(
-                child: RaisedButton.icon(
-                  padding: EdgeInsets.symmetric(horizontal: 25, vertical: 10),
-                  onPressed: () {},
-                  icon: Icon(Icons.shopping_bag),
-                  label: Text('Buy Now'),
-                ),
+            ),
+            SizedBox(height: 20),
+            Center(
+              child: RaisedButton.icon(
+                padding: EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+                onPressed: () {},
+                icon: Icon(Icons.shopping_bag),
+                label: Text('Buy Now'),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

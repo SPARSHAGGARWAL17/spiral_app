@@ -79,12 +79,22 @@ class Descriptions extends StatelessWidget {
     return Container(
       padding: EdgeInsets.fromLTRB(5, 5, 5, 0),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           FittedBox(child: Text(_keys[i])),
-          Icon(
-            description[_keys[i]],
-            size: 40,
-          ),
+          if (_keys[i] != 'Performance')
+            Icon(
+              description[_keys[i]],
+              size: 40,
+            ),
+          if (_keys[i] == 'Performance')
+            Container(
+                height: 50,
+                width: 50,
+                child: Image.asset(
+                  'assets/cpu.png',
+                  fit: BoxFit.cover,
+                )),
           FittedBox(child: Text(mobile.specs[_keys[i]])),
         ],
       ),
