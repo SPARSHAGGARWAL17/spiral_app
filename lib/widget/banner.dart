@@ -21,12 +21,15 @@ class _BannerListState extends State<BannerList> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            'Buy The Best',
-            style: Theme.of(context)
-                .textTheme
-                .bodyText1
-                .copyWith(fontSize: 20, fontFamily: 'Segoe UI'),
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Text(
+              'Buy The Best',
+              style: Theme.of(context)
+                  .textTheme
+                  .bodyText1
+                  .copyWith(fontSize: 20, fontFamily: 'Segoe UI'),
+            ),
           ),
           Expanded(
             child: CarouselSlider(

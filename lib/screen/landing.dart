@@ -111,7 +111,7 @@ class _LandingPageState extends State<LandingPage> {
       ),
       body: SafeArea(
         child: SingleChildScrollView(
-          padding: EdgeInsets.all(10),
+          // padding: EdgeInsets.all(10),
           child: Column(
             children: [
               BannerList(),
@@ -120,7 +120,10 @@ class _LandingPageState extends State<LandingPage> {
                 list: mobileCard,
                 displayText: true,
               ),
-              CompareWidget(),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: CompareWidget(),
+              ),
               SectionItem(
                 title: 'Top Performing',
                 list: mobileCard,
