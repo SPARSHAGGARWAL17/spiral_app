@@ -31,6 +31,7 @@ class MobilePage extends StatelessWidget {
                     width: size.width * 0.6,
                   ),
                   Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       for (var i = 0; i < 4; i++)
                         Descriptions(
@@ -58,7 +59,7 @@ class MobilePage extends StatelessWidget {
             Expanded(
               // height: MediaQuery.of(context).size.height * 0.2,
               // padding: const EdgeInsets.fromLTRB(15, 5, 0, 0),
-              flex: 2,
+              flex: 3,
               child: SingleChildScrollView(
                 padding: EdgeInsets.only(left: 10),
                 child: Column(
@@ -92,7 +93,6 @@ class MobilePage extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 20),
             Center(
               child: RaisedButton.icon(
                 padding: EdgeInsets.symmetric(horizontal: 25, vertical: 10),

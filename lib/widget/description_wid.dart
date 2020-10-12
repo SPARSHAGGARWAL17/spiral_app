@@ -88,17 +88,16 @@ class Descriptions extends StatelessWidget {
               size: 40,
             ),
           if (_keys[i] == 'Performance')
-            Container(
-                height: 50,
-                width: 50,
-                child: Image.asset(
-                  'assets/cpu.png',
-                  fit: BoxFit.cover,
-                )),
+            Expanded(
+              child: Container(
+                  child: Image.asset(
+                'assets/cpu.png',
+                fit: BoxFit.cover,
+              )),
+            ),
           FittedBox(child: Text(mobile.specs[_keys[i]])),
         ],
       ),
-      margin: EdgeInsets.only(bottom: 5, top: 5),
       height: size.height * 0.11,
       width: size.height * 0.12,
       decoration: BoxDecoration(
